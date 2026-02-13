@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+.container {
+
+  @apply max-w-[1170px] mx-auto ;
+}
+@theme {
+  --font-poppins: "Poppins", sans-serif; 
+  --font-inter:  "Inter", sans-serif; 
+}
+
+.menu li a , .category a {
+  @apply font-poppins text-black text-[16px] font-normal leading-6 relative
+}
+.menu li a::after{
+  @apply absolute content-[''] w-0 h-px bg-[rgba(0,0,0,0.25)] bottom-[-5px] left-0 duration-500
+}
+.menu li a:hover::after{
+  @apply  w-full
+}
+.address {
+  @apply font-poppins font-normal text-[16px] leading-6 text-[#FAFAFA]
+}
+
+.slick-dots li button {
+    width: 12px !important;
+    height: 12px !important;
+    background: rgba(255, 255, 255, 0.323)!important;
+    border-radius: 50%;
+    position: relative;
+    bottom: 145px !important;
+    }
+
+    .slick-dots li button:before {
+    color: transparent !important;
+   ;
+   }
+
+   .slick-dots li.slick-active button {
+    background-color: #fff !important;
+     width: 14px !important;
+    height: 14px !important;
+   }
+
+    .slick-dots li.slick-active button:before{
+    width: 10px !important;
+    height: 10px !important;
+    background: #DB4444 !important;
+    border-radius: 50%;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%,-50%);
+    }
+    .slick-dots{
+        bottom: -140px !important;
+    }
+    .slick-list{
+        overflow: hidden !important;
+    }
+     .slick-center .item {
+        background-color: #F4EFEF;
+    }
+    
+.agree input[type='checkbox']:checked + label span{
+  color: #fff;
+}
+.pay input[type='radio']:checked + label span{
+  background-color: #000;
+  box-shadow: 0px 0px 0px 4px white inset;
+}
+
+
+
+.colors input[type='radio']:checked + label span{
+  border:2px solid #000;
+  box-shadow: 0px 0px 0px 2px white inset;
+}
+.sizes input[type='radio']:checked + label span{
+  border-color: #DB4444;
+  background-color: #DB4444;
+  color: #fff;
+}
+
+.abc {
+    background: #87648B;
+    background: linear-gradient(50deg, rgb(107 70 112) 0%, rgb(141 140 140) 100%);
+}
+.iiz__hint {
+  display: none !important;
+}
+.iiz {
+  cursor: default !important;
+}
+.iiz__img {
+  cursor: default !important;
+}
+
