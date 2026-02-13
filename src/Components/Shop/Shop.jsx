@@ -71,12 +71,12 @@ const Shop = () => {
 
   return (
     <>
-    <section className='pb-[104px] pt-20'>
+    <section className='pb-26 pt-20'>
       <div className="container">
-         <p className='font-popins font-normal text-[14px] leading-[21px] text-[rgba(0,0,0,0.43)] flex gap-4'>
+         <p className='font-popins font-normal text-[14px] leading-5.25 text-[rgba(0,0,0,0.43)] flex gap-4'>
             <a href="">Home</a> <span>/</span> <span>Shop</span>
             </p>
-        <div className="flex pt-[50px]">
+        <div className="flex pt-12.5">
           <div className="w-1/5">
           <div className="">
              <h3 className='font-popins font-bold text-[20px] text-[#262626] pb-4'>Shop by Category</h3>
@@ -114,21 +114,21 @@ const Shop = () => {
           </div>
           </div>
           <div className="w-4/5">
-           <div className='flex gap-3 justify-end items-center pb-[30px]'>
+           <div className='flex gap-3 justify-end items-center pb-7.5'>
                 <span className='font-popins font-normal text-[16px] leading-6 text-black'>Show : </span>
                 <input
                       type="number"
                       min="1"
                       value={visiblecount}
                       onChange={(e) => setVisibleCount(Number(e.target.value))}
-                      className="w-[97px] border border-[#D9D9D9] rounded-[5px] py-1.5 text-center"
+                      className="w-24.25 border border-[#D9D9D9] rounded-[5px] py-1.5 text-center"
                       />
               </div>
-              <div className="grid grid-cols-3 pb-[118px] gap-[30px]">
+              <div className="grid grid-cols-3 pb-29.5 gap-7.5">
               {
                   currentItems.map((product,index) => (
                       <div key={index}>
-                          <div className='bg-[#F5F5F5] py-[35px] rounded-sm mb-4 relative group overflow-hidden'>
+                          <div className='bg-[#F5F5F5] py-8.75 rounded-sm mb-4 relative group overflow-hidden'>
                             <Link to={`/Details/${product.id}`}>
                              <img className='mx-auto' src={product.thumbnail} alt="" />
                             </Link>

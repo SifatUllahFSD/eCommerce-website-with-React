@@ -46,7 +46,7 @@ const Explore = () => {
                     products.slice(0,visibleCount).map((product,index) => (
                          <div className="" key={index}>
                <div className=" relative bg-[#F5F5F5] py-[35px] rounded-sm group overflow-hidden ">
-                 <Link to='/Details'>
+                 <Link to={`/Details/${product.id}`}>
                    <img className='mx-auto' src={product.thumbnail} alt="" />
                  </Link>          
                

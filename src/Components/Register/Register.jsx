@@ -86,7 +86,7 @@ const Register = () => {
         <div className="container h-full">
             <div className="flex justify-end  items-center h-full">
                 <div className="">
-                     <h2 className='font-inter font-medium text-[36px] leading-[30px] text-black pb-6'>Create an account</h2>
+                     <h2 className='font-inter font-medium text-[36px] leading-7.5 text-black pb-6'>Create an account</h2>
                      <p className='font-popins font-normal text-[16px] leading-6 text-black pb-12'>Enter your details below</p>
                      <form  onSubmit={handleSubmit}>
                         <div className="pb-10">
