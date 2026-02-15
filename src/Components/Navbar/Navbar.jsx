@@ -1,18 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoChevronDownSharp } from "react-icons/io5";
 import logo1 from '../../assets/images/logo1.png'
 import { FiSearch } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa6";
 import { IoCartOutline } from "react-icons/io5";
 import { RiUser3Line } from "react-icons/ri";
-import { Link, useLocation } from 'react-router';
+import { Link, useLocation } from 'react-router-dom';
 import { LuShoppingBag } from "react-icons/lu";
 import { IoIosStarOutline } from "react-icons/io";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { TbLogout2 } from "react-icons/tb";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+
 
 const Navbar = () => {
+  const auth = getAuth();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
     const location = useLocation();
     const currentLink = window.location.pathname
 
@@ -20,6 +26,31 @@ const Navbar = () => {
 
     const [searchkeyword, setSearchKeyword] = useState('')
     const cartItems = useSelector(state => state.cart.items)
+   
+     useEffect(() => {
+        const unsub = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                dispatch(authinfo({
+                    uid:user.uid,
+                    displayName:user.displayName,
+                    email:user.email,
+                }))
+            }
+        });
+        return () => unsub()
+    },[])
+const handleLogout = async () => {
+  try {
+    await signOut(auth);
+    setShow(false); // dropdown বন্ধ করবে
+    navigate("/login"); // login page এ পাঠাবে
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+
     
   return (
    <>
@@ -106,10 +137,10 @@ const Navbar = () => {
                       <IoIosStarOutline className='text-[24px]'/>
                       <span>My Reviews</span>
                   </a>
-                  <a href="" className='flex gap-4 items-center font-popins font-normal text-[14px] leading-[21px] text-[#FAFAFA]'>
+                  <button onClick={handleLogout} href="" className='flex gap-4 items-center font-popins font-normal text-[14px] leading-[21px] text-[#FAFAFA]'>
                       <TbLogout2 className='text-[24px]'/>
                       <span>Logout</span>
-                  </a>
+                  </button>
               </div>
             }
                         
